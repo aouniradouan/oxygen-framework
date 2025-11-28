@@ -1,158 +1,95 @@
 <?php
-// Create Router instance
-$OxRouting = new \Bramus\Router\Router();
 
-// including middlewares
-include_once 'middlewares.php';
+use Oxygen\Core\Application;
+use Oxygen\Core\Route;
 
-// Requests [POST GET ect ] Method will be requested from here
-include_once 'requests.php';
+$router = Application::getInstance()->make(\Bramus\Router\Router::class);
 
-// if the requested page isn't exists show 404 page
-$OxRouting->set404(function() {
-    global $twig,$ErrorPageArray;
-    header('HTTP/1.1 404 Not Found');
-    echo $twig->render("errors.blade.html",$ErrorPageArray);
-    exit();
+// ============================================
+// Public Routes
+// ============================================
+
+$router->get('/', function () {
+    $view = Application::getInstance()->make(\Oxygen\Core\View::class);
+    echo $view->render('welcome/home.twig.html');
 });
 
-$OxRouting->get('/', function() {
-    global $twig;
-    echo $twig->render("index.blade.html");
+$router->get('/error', function () {
+    throw new Exception("Redwan Test This One Day!");
 });
 
+// ============================================
+// Admin Authentication Routes
+// ============================================
 
+// Apply Auth Middleware to all /admin routes except login
+$router->before('GET|POST|PUT|DELETE', '/admin/.*', function () {
+    // Skip login/logout routes
+    $uri = $_SERVER['REQUEST_URI'];
+    if (strpos($uri, '/admin/login') !== false || strpos($uri, '/admin/logout') !== false) {
+        return;
+    }
 
-
-$OxRouting->mount('/payment', function() use ($OxRouting) {
-    // This will result payment/eddahabia
-    $OxRouting->get('/algpay','Payments@Eddahabia');
-    $OxRouting->get('/algpay/success','Payments@Eddahabia');
-});
-
-
-// Signup Routing
-$OxRouting->get('/auth/signup', function() {
-    global $signupPageArrays,$twig;
-    echo $twig->render("signup.blade.html",$signupPageArrays);
-
-});
-
-// Login Routing
-$OxRouting->get('/auth/login', function() {
-    global $loginPageArrays,$twig;
-    echo $twig->render("login.blade.html",$loginPageArrays);
-
-});
-
-$OxRouting->mount('/welcome', function() use ($OxRouting) {
-
-    // will result in '/'
-    $OxRouting->get('/', function() {
-        global $welcomePageArrays,$twig;
-        echo $twig->render("welcome.blade.html",$welcomePageArrays);
+    $middleware = new \Oxygen\Http\Middleware\OxygenAuthMiddleware();
+    $middleware->handle(\Oxygen\Core\Request::capture(), function ($request) {
+        // Continue
     });
+});
+Route::get($router, '/admin/login', 'Admin\AuthController@login');
+Route::post($router, '/admin/login', 'Admin\AuthController@authenticate');
+Route::get($router, '/admin/logout', 'Admin\AuthController@logout');
 
-    // will result in 'welcome/agreement'
-    $OxRouting->get('/agreement', function() {
-        global $welcomePageArrays,$twig;
-        echo $twig->render("agreements.blade.html",$welcomePageArrays);
-    });
+// ============================================
+// Admin Dashboard Routes
+// ============================================
+Route::get($router, '/admin/dashboard', 'Admin\AdminController@index');
 
-    // will result in '/welcome/step/1'
-    $OxRouting->get('/step/1', function() {
-        global $welcomePageArrays,$twig;
-        echo $twig->render("setup-account.blade.html",$welcomePageArrays);
-    });
+// ============================================
+// Admin Article Management Routes
+// ============================================
+// ============================================
+// Admin Article Management Routes
+// ============================================
+Route::get($router, '/admin/articles', 'Admin\ArticleController@index');
+Route::get($router, '/admin/articles/create', 'Admin\ArticleController@create');
+Route::post($router, '/admin/articles/store', 'Admin\ArticleController@store');
+Route::get($router, '/admin/articles/edit/(\d+)', 'Admin\ArticleController@edit');
+Route::post($router, '/admin/articles/update/(\d+)', 'Admin\ArticleController@update');
+Route::get($router, '/admin/articles/delete/(\d+)', 'Admin\ArticleController@destroy');
 
+// Auth Routes
+Route::get($router, '/login', 'AuthController@showLoginForm');
+Route::post($router, '/login', 'AuthController@login');
+Route::get($router, '/register', 'AuthController@showRegisterForm');
+Route::post($router, '/register', 'AuthController@register');
+Route::get($router, '/logout', 'AuthController@logout');
+Route::post($router, '/logout', 'AuthController@logout');
 
-    // will result in '/welcome/step/2'
-    $OxRouting->get('/step/2', function() {
-        global $welcomePageArrays,$twig;
-        echo $twig->render("package.blade.html",$welcomePageArrays);
-    });
+// Password Reset Routes
+Route::get($router, '/password/reset', 'AuthController@showResetRequestForm');
+Route::post($router, '/password/email', 'AuthController@sendResetLink');
+Route::get($router, '/password/reset/token', 'AuthController@showResetForm');
 
+// Dashboard (Protected Route)
+Route::get($router, '/dashboard', function () {
+    $auth = Application::getInstance()->make(\Oxygen\Core\Auth::class);
+    if (!$auth->check()) {
+        header('Location: /login');
+        exit;
+    }
+
+    $view = Application::getInstance()->make(\Oxygen\Core\View::class);
+    echo $view->render('dashboard.twig.html', [
+        'user' => $auth->user()
+    ]);
 });
 
-
-
-// Browse Page
-
-
-$OxRouting->mount('/browse', function() use ($OxRouting) {
-
-    // will result in '/browse'
-    $OxRouting->get('/', function() {
-        global $BrowsePageArray,$twig;
-        echo $twig->render("browse.blade.html",$BrowsePageArray);
-    });
-
-
-});
-
-
-$OxRouting->mount('/course', function() use ($OxRouting) {
-    // will result in '/course/{Course key}' will show the user the course details page
-    $OxRouting->get('/([^/]+)','Courses@CourseDetails');
-
-    // will result in '/watch' will show the user the wtach page
-    $OxRouting->get('/watch/([^/]+)', 'Courses@CourseWatch');
-});
-
-
-
-
-$OxRouting->mount('/videos', function() use ($OxRouting) {
-
-    // Get the movies list from class and render it
-    $OxRouting->get('/movies','Videos@MoviesList');
-
-    // will result in '/videos/movies/{Course key}' will show the user the course details page
-    $OxRouting->get('/movies/([^/]+)','Videos@MovieWatch');
-
-    // Get the series list from class and render it
-    $OxRouting->get('/series','Videos@SeriesList');
-
-    // will result in '/watch' will show the user the wtach page
-    $OxRouting->get('/series/([^/]+)', 'Videos@SeriesWatch');
-});
-
-
-// will result in Scrap from given urls
-$OxRouting->mount('/search', function() use ($OxRouting) {
-    // will result in '/course/{Course key}' will show the user the course details page
-    $OxRouting->get('/([^/]+)','SearchEngine@Search');
-});
-
-
-// will result in Scrap from given urls
-$OxRouting->mount('/ads', function() use ($OxRouting) {
-    // will result in '/ads/{ads_id}' will show the user the course details page
-    $OxRouting->get('/([^/]+)','Ads@ViewAdsbyID');
-});
-
-$OxRouting->get('/search', function() {
-    global $twig;
-    echo $twig->render("search.blade.html");
-});
-
-
-
-
-
-
-// Admin Panel
-
-// will result in Scrap from given urls
-$OxRouting->mount('/admin', function() use ($OxRouting) {
-    // will result in '/ads/{ads_id}' will show the user the course details page
-    $OxRouting->get('/add-ads','AdminAds@index');
-});
-
-
-
-
-
-// Run it!
-$OxRouting->run();
-?>
+Route::get($router, '/users', 'UserController@index');
+// Post Resource Routes
+Route::get($router, '/posts', 'PostController@index');
+Route::get($router, '/posts/create', 'PostController@create');
+Route::post($router, '/posts/store', 'PostController@store');
+Route::get($router, '/posts/(\d+)', 'PostController@show');
+Route::get($router, '/posts/(\d+)/edit', 'PostController@edit');
+Route::post($router, '/posts/(\d+)/update', 'PostController@update');
+Route::get($router, '/posts/(\d+)/delete', 'PostController@destroy');

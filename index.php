@@ -1,15 +1,22 @@
-
 <?php
 
-	// check the vendor/autoload.php file
-	if ( file_exists( __DIR__ . '/' . 'vendor/autoload.php' ) ) {
+/**
+ * OxygenFramework - A Lightweight PHP Framework
+ *
+ * @package  OxygenFramework
+ * @author   Your Name <aouniradouan@gmail.com>
+ */
 
-		require_once __DIR__ . '/' . 'server.php';
-		require_once __DIR__ .  '/' . $FILES_SYSTEMS['public']['path'] . '/index.php';
+$uri = urldecode(
+    parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+);
 
-	}else{
-		echo "Please run <code>composer install </code> - <a target='_blank' href='https://getcomposer.org/doc/03-cli.md#install-i'>Read more from composer</a>";
-		exit();
-	}
+// This file allows us to emulate Apache's "mod_rewrite" functionality from the
+// built-in PHP web server. This provides a convenient way to test a Oxygen
+// application without having installed a "real" web server software here.
+if ($uri !== '/' && file_exists(__DIR__ . '/public' . $uri)) {
+    return false;
+}
 
-?>
+
+require_once __DIR__ . '/public/index.php';

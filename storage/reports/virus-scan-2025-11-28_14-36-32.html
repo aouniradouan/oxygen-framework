@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virus Scan Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+        h1 { color: #333; border-bottom: 3px solid #e74c3c; padding-bottom: 10px; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-box { padding: 20px; border-radius: 5px; text-align: center; background: #f8f9fa; }
+        .stat-box h3 { margin: 0; font-size: 32px; }
+        .stat-box p { margin: 5px 0 0 0; color: #666; }
+        .infected { background: #ffebee; border-left: 4px solid #c62828; }
+        .threat { margin: 15px 0; padding: 15px; border-radius: 5px; background: #fff3e0; border-left: 4px solid #ef6c00; }
+        .threat h4 { margin: 0 0 10px 0; color: #e65100; }
+        .threat-item { margin: 10px 0; padding: 10px; background: #fff; border-left: 3px solid #ff9800; }
+        .severity-badge { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; color: white; }
+        .severity-critical { background: #c62828; }
+        .severity-high { background: #ef6c00; }
+        .severity-medium { background: #f9a825; }
+        .clean { color: green; font-weight: bold; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦠 Virus Scan Report</h1>
+        <p><strong>Scan Date:</strong> 2025-11-28 14:36:31</p>
+        
+        <div class="summary">
+            <div class="stat-box">
+                <h3>132</h3>
+                <p>Files Scanned</p>
+            </div>
+            <div class="stat-box infected">
+                <h3>132</h3>
+                <p>Infected Files</p>
+            </div>
+            <div class="stat-box">
+                <h3>132</h3>
+                <p>Quarantined Files</p>
+            </div>
+        </div>
+
+        <h2>Scan Results</h2>
+                <div class="threat">
+                    <h4>🚨 app\Console\Command.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>09f83fd01937597f7a4b3ebf788370cb</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\DocsGenerateCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>935011a20868d9ebe1852c8b118b3d2f</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\FrameworkUpdateCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>02df147f589e244c1885ea1c86c9e8c4</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\GenerateAppCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>05eda03509b413da558967cbcd97f297</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\Generator\Generators\APIGenerator.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>78805be60d2007090e95600d6642c185</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\Generator\Generators\AuthGenerator.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>f43e22cfa53fd3d80792f459e21638a7</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\Generator\Generators\RelationshipDetector.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>594ea26c68ae1df96a19da6f93645896</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\Generator\Generators\ResourceGenerator.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>0d25303e67c60c9b90e3e918c16e57bc</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\Generator\Questions\QuestionEngine.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>f256009a212a99eedee6c4a4d1fea5bc</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\Generator\Templates\BlogTemplate.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>3aec8ec1589ce5071608c57f82f36163</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\Generator\Templates\CRMTemplate.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>90b752f6260a5b6cbb6570ce0894db88</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\Generator\Templates\EcommerceTemplate.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>94da08cd8839b0eb9dd9e22104359c87</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\Generator\Templates\TemplateInterface.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>6b66481c08235ede337e07abb1deec89</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\ListCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>895448f4a756789887e37400528e9cc1</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\MakeControllerCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>384a34b4ad892a9bd057bce907b9448d</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\MakeMiddlewareCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>627355a5002aea1b2de9bf071dd69ad7</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\MakeMigrationCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>96aeee15bb4e30edf8f141a046a9e48d</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\MakeModelCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>1b6436926f7aa58e4c2e5b6c0376aa21</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\MakeServiceCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>44bb0e9e1d6cbabc36ee0bdb0f5709ae</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\MigrateCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>5be289bbda00e27abdf48a342fc42615</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\MigrateRollbackCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>5009071977c6b3d723ba6224a7474c11</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\QueueWorkCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>3671ffac773e133a370997dc8845badd</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\ScaffoldResourceCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 2</p>
+                    <p><strong>File Hash:</strong> <code>ca503d0ea7ab5010583acb4d51db3e4b</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: system()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\SecurityScanCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>a2c25a3dee4a55f1254e2041409cfb0b</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\ServeCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 2</p>
+                    <p><strong>File Hash:</strong> <code>65baa7faa2644d1556d04f61e76c60bc</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: passthru()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\TestAllCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>b0ff225ae9897396e7e963a376f7f182</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\TestGenerateCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>4a019510936d9e27a07bb5a59b8e42bf</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\VirusScanCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>4039eb143ec15203c023b954a3ce9d9e</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\Commands\WebSocketCommand.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>b5c293bbb3259be0e98564c25feccd10</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Console\OxygenKernel.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>75ef90d3d7b267d2da6f5a8eb51a3f37</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Controllers\Admin\AdminController.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>b7db7c676a9d7bdc15f58d55fec4cbc7</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Controllers\Admin\ArticleController.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>c467872f95eb6042c43d5cec36fbfa6d</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Controllers\Admin\AuthController.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>e0e672ee314fea8016e3b68c66d4bb45</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Controllers\Controller.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>0949b86199377a77a77477f2d14fe4a2</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Controllers\UserController.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>5ad3bf974cc90d49fd337f3f7b928e6c</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\AI\OxygenAI.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>daf36e16e597630a4c1c2c356dc93159</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\API\OxygenAPI.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>68285f9693afe3fd4ca7cab40d53b51d</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Application.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>a3e4293103c2c9ddbffa681e335d6505</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Auth\OxygenJWT.php</h4>
+                    <p><strong>Threats Found:</strong> 2</p>
+                    <p><strong>File Hash:</strong> <code>62bfdd4de95c98abbd97d1e1c0183a95</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: base64_decode()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Auth.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>89e6cac651d0b6ff03d76cfcd6a760ce</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Cache\OxygenCache.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>d0f4b763b47b2ffcc9b6e7cee6f5eee9</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Container.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>222ecd5120db3163bb5e541c83129328</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\CSRF.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>397928ff591306fed410d0ae3c0593a2</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\Collection.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>f9962ee43ee55080e3142977288d0c01</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\Concerns\HasRelationships.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>fb3a2aa41942205b0fea6c5c02e51280</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\Migration.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>7b7e3016c2abaf9ed8b7876aaaec81fb</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\OxygenMigration.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>0eb19a83343be922b818ab182464daa7</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\OxygenMigrator.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>3801045caa3c8a3a600d74373070d8c0</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\OxygenSchema.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>b8a5d69670e12527d9bfb43d6b1f73b5</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\Relations\BelongsTo.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>ac03ce92c331c1a95d15be8019b45bc6</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\Relations\BelongsToMany.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>fcad82faacb70628ab9d52403a4a0cf3</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\Relations\HasMany.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>04bad076c230f3a65c6113bf9ae03eb7</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\Relations\HasOne.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>3f8e8dd5756d7c738b6e1543c9917e5a</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Database\Relations\Relation.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>10e641ecaa106fd39a08ea2dbf0cff7a</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Docs\OxygenDocs.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>18590bf13f7d63f7b355a6c048b164de</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Error\OxygenError.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>a9ecfede6c25862c3f6b04c03a3b4246</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Flash.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>8271a4aa9d96d4dc4886bee34eb9c8f5</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Form.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>e8b96f44bd079c25e463dfa16f9e7824</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\GraphQL\OxygenGraphQL.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>5e10ac97e24009d4f4a1e6245024d453</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Kernel.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>73529d32662a76109ddd100eb660ddf8</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Lang.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>46a8af8a2cc6f324b8d1ff7eb6323fe7</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Middleware\Middleware.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>ca3e343a0cb0f5eded4b52004e23f9b5</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Middleware\MiddlewareStack.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>fe770c292ba235cd90210d94d790c5a8</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Model.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>779d72fc0931fb29a335f72697bd9d14</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\OxygenAsset.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>e0bd85f8138214865f8e4c8ad758ffdc</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\OxygenConfig.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>f311746508977c17c91cb6e5c02afb2a</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\OxygenPython.php</h4>
+                    <p><strong>Threats Found:</strong> 2</p>
+                    <p><strong>File Hash:</strong> <code>45aa7b33b41b42a8e76967f3152a2819</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: proc_open()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\OxygenSession.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>85df6465f2d94a5616bd83e36c0909bd</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\OxygenTheme.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>dbc5b700f0d09dda68f841013bd461c6</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Paginator.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>d764c6e35d906451c234e29dc019d3ee</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Performance\OxygenProfiler.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>7c36409404f6f45189a2b44be643e78f</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Queue\OxygenQueue.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>1708e8c10fef968cc91d8adf600767ab</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Request.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>e1c064627d301994c505daf6189e425f</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Response.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>1514a693128f711658f45d4af9edb9cd</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Route.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>34526ff21d81a58e1526c9efe4d546d3</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Security\OxygenRateLimiter.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>cd143ca8d133cb58f4e2d9bc975dcb5a</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Security\OxygenSecurity.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>712c7a5125ae78a43ceb042014824067</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Security\OxygenSecurityFixer.php</h4>
+                    <p><strong>Threats Found:</strong> 2</p>
+                    <p><strong>File Hash:</strong> <code>340f38ada9a93c12ce9229efed43f383</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: eval()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Security\OxygenSecurityScanner.php</h4>
+                    <p><strong>Threats Found:</strong> 6</p>
+                    <p><strong>File Hash:</strong> <code>8a86b7ccc30a12fadd577aa220e6ffd7</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: eval()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: exec()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: shell_exec()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: system()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: passthru()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Security\OxygenVirusScanner.php</h4>
+                    <p><strong>Threats Found:</strong> 4</p>
+                    <p><strong>File Hash:</strong> <code>4123879e188fa509e1bab6b61dcb0d1a</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Suspicious Pattern:</strong> Suspicious code pattern detected
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Suspicious Pattern:</strong> Suspicious code pattern detected
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-critical">CRITICAL</span>
+                        <strong>IRC Bot:</strong> Potential IRC bot code detected
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Storage\OxygenStorage.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>1eddc8638150b3627d64fe55faa1ccae</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Support\Str.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>f285f1407a8cebdb7f0a646d513d9076</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Testing\OxygenTestGenerator.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>25c1a7805baca602d713d59a5ab0cd9e</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Testing\OxygenTestRunner.php</h4>
+                    <p><strong>Threats Found:</strong> 3</p>
+                    <p><strong>File Hash:</strong> <code>eb396be0b11eace28149ce0cf0304026</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: exec()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-high">HIGH</span>
+                        <strong>Malicious Function:</strong> Suspicious function detected: shell_exec()
+                    </div>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Traits\HasRelationships.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>da2d8b70eed5ecb7de5eece004b71ad3</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Traits\SoftDeletes.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>d3d5a13a38fbe5b2cc44bd678a6d9553</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Validation\OxygenValidator.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>0da6f643a3a91484c16edfd930381609</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\Validator.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>6ffec6b6bb2f9c586eefe6fd7417435e</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\View.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>13502b834d00d9528a98cd1918bf4a9f</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Core\WebSocket\OxygenWebSocket.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>79d5b5b8402dc7da060cbe976a801301</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\helpers\api.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>f18fb0700234f14dc559bab0ac3dab10</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\helpers\lang.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>cc63b160802ee97681aefcb12f3cfcc9</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\helpers\storage.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>2c55bf9383799f493ad064d8df7fcd98</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Http\Middleware\OxygenAuthMiddleware.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>2b4a3ca4861230fb1fa5ea169e338c41</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Http\Middleware\OxygenCorsMiddleware.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>cc34ebec84dbbe2f769f7bbcaed37843</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Http\Middleware\OxygenCsrfMiddleware.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>84bf74743bcc5aa8ecb274e937e7809f</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Http\Middleware\OxygenJwtMiddleware.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>cc3dd75f03e5adfd759994ed33557e83</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Http\Middleware\OxygenLocaleMiddleware.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>588cdb31059014448be8c2daf356540e</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Http\Middleware\OxygenRateLimitMiddleware.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>cb140b63f26ec4e48089e05279cc33dc</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Models\User.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>eb82236a7c7398068426dd9c632df62c</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Services\OxygenEmailService.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>c20bd5539450cff30c7e3f8061f763fd</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Services\OxygenPaymentService.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>d41d8cd98f00b204e9800998ecf8427e</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Services\OxygenSmsService.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>65ee63f02dad63cdc7975ad834ea9841</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 app\Services\OxygenStorageService.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>6bf5dda5c672fa5ea7d23360f5f354c3</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 check_admin.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>04b3ae39e4d3a3f02024b6dc2535ab6d</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\api.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>0fee359533ea55793d9d4b644e984e48</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\app.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>d7cabeedb5bfc6a5360133f4e09c9053</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\config.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>2cdf4d7b2e1898703c26edf03e542fc0</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\cors.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>f283481af994bcbf16686dbc6a3b5a3f</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\database.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>a97d043184ffe294725b59a1accf9f9e</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\errors.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>50b4d9cc71061be8eb811c378a6a401d</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\filesystems.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>16f59187780595877b73418d72ff040b</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\jwt.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>f5feaa475eb5b35da17287f996f7d84f</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\payments.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>54cee2f677249b414f3495f26506d9f1</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\security.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>d522722d78f0a3d439cef1766ad98f87</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\testing.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>c9f2f7ab216a6f8f19bbfa90621dc610</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 config\utilities.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>2ba0c664367bdd3caf0a2d12c7a8f5c9</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 create_admin.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>a91c72b3480f5490e88db618f0eb890a</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 database\migrations\2025_11_28_130515_User.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>d633378120be266c0114111ee95316b7</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 index.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>38633d331f678219f2467b0a083cb72b</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 public\index.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>b8a26b45567e2020899edf87f1cebd98</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 resources\lang\en\messages.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>5282ca66456ab8e95fc448247dde395c</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 resources\lang\fr\messages.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>89ceece48aa2c16664a784783abb330d</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 resources\views\templates\Oxygen\desktop\home.blade.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>bf35c346a943ba4db251fb91394a21c3</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 resources\views\templates\Oxygen\desktop\index.blade.phtml</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>fcae2ebe17b9dce2d0c9b64b36506b57</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 resources\views\templates\Oxygen\mobile\home.blade.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>272401b6890a2831f4a47b5352362836</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 resources\views\templates\Oxygen\mobile\layout\master\footer.blade.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>d41d8cd98f00b204e9800998ecf8427e</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 resources\views\templates\Oxygen\mobile\layout\master\header.blade.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>d41d8cd98f00b204e9800998ecf8427e</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 resources\views\templates\Oxygen\mobile\register.blade.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>52c011da8b5b7e42e40468f66d4d1f8d</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 routes\api.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>6096d40ebd2273d69af06113b9d10589</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 routes\web.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>b4a75501e580873617cfd467b0c00c04</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+                <div class="threat">
+                    <h4>🚨 server.php</h4>
+                    <p><strong>Threats Found:</strong> 1</p>
+                    <p><strong>File Hash:</strong> <code>9bbeaf5cf613c4d1ae39f253de4706bd</code></p>
+                    <div class="threat-item">
+                        <span class="severity-badge severity-medium">MEDIUM</span>
+                        <strong>Insecure Permissions:</strong> File is world-writable
+                    </div></div>
+    </div>
+</body>
+</html>
