@@ -1,0 +1,48 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Composer
+composer.lock
+
+# Environment
+.env
+.env.backup
+.env.local
+
+# IDE
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Cache & Storage
+/storage/cache/*
+!/storage/cache/.gitkeep
+/storage/queue/*
+!/storage/queue/.gitkeep
+
+# Uploads (keep structure, ignore files)
+/public/storage/images/*
+!/public/storage/images/.gitkeep
+/public/storage/videos/*
+!/public/storage/videos/.gitkeep
+/public/storage/audio/*
+!/public/storage/audio/.gitkeep
+/public/storage/files/*
+!/public/storage/files/.gitkeep
+
+# Logs
+*.log
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+# Temporary files
+.header-template.php
+GITHUB_READY.md

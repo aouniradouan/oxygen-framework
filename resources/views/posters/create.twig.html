@@ -1,0 +1,29 @@
+{% extends "layouts/app.twig.html" %}
+
+{% block title %}Create Poster{% endblock %}
+
+{% block content %}
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Create Poster</h1>
+        
+        <div class="bg-white shadow-md rounded p-6">
+            <form method="POST" action="{{ url('posters/store') }}" enctype="multipart/form-data">
+                {{ csrf_field|raw }}
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Title</label>
+                    <input type="text" name="title" value="" class="w-full border rounded px-3 py-2" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2">Picture</label>
+                    <input type="file" name="picture" class="w-full border rounded px-3 py-2"  required>
+                </div>
+
+                <div class="flex gap-4">
+                    <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Create</button>
+                    <a href="{{ url('posters') }}" class="bg-gray-300 text-gray-700 px-6 py-2 rounded hover:bg-gray-400">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

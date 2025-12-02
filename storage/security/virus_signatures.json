@@ -1,0 +1,28 @@
+{
+    "malicious_functions": [
+        "eval",
+        "base64_decode",
+        "gzinflate",
+        "str_rot13",
+        "gzuncompress",
+        "assert",
+        "create_function",
+        "exec",
+        "shell_exec",
+        "system",
+        "passthru",
+        "proc_open",
+        "popen"
+    ],
+    "suspicious_patterns": [
+        "/\\$\\w+\\s*=\\s*base64_decode\\s*\\(/i",
+        "/eval\\s*\\(\\s*base64_decode/i",
+        "/eval\\s*\\(\\s*gzinflate/i",
+        "/\\$_(?:GET|POST|REQUEST|COOKIE)\\s*\\[\\s*['\"](?:cmd|command|exec|shell)['\"]/",
+        "/system\\s*\\(\\s*\\$_(?:GET|POST|REQUEST)/i",
+        "/c99shell/i",
+        "/r57shell/i",
+        "/wso\\s*shell/i"
+    ],
+    "known_malware_hashes": []
+}

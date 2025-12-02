@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ locale() }}" dir="{{ direction() }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ APP_NAME }}{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    <!-- Note: For production, consider using 'npm run build' and referencing the compiled CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#94748b',
+                    }
+                }
+            }
+        }
+    </script>
+
+    {% block head %}{% endblock %}
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <nav class="bg-white shadow mb-8">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold text-primary">{{ APP_NAME }}</a>
+            <div>
+                {% if auth.check %}
+                <span class="mr-4">Hello, {{ auth.user.name }}</span>
+                <a href="/logout" class="text-red-500 hover:text-red-700">Logout</a>
+                {% else %}
+                <a href="/login" class="text-blue-500 hover:text-blue-700 mr-4">Login</a>
+                <a href="/register" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4">
+        {{ flash_display()|raw }}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>
