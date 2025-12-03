@@ -18,24 +18,24 @@
 ## Key Features
 
 ### Core Features
-- **🎯 Simple Routing** - Clean, expressive routing with support for GET, POST, PUT, DELETE, PATCH
-- **🗄️ Elegant ORM** - Active Record pattern with relationships, pagination, and query building
-- **🎨 Twig Templates** - Powerful templating engine with inheritance and components
-- **🔐 Authentication** - Built-in session-based authentication system
-- **🛡️ Security** - CSRF protection, XSS prevention, and SQL injection protection
-- **📦 Dependency Injection** - Service container for clean, testable code
-- **⚡ Middleware** - Global and route-specific middleware support
-- **🔧 CLI Tools** - Powerful command-line interface for scaffolding and management
+- **Simple Routing** - Clean, expressive routing with support for GET, POST, PUT, DELETE, PATCH
+- **Elegant ORM** - Active Record pattern with relationships, pagination, and query building
+- **Twig Templates** - Powerful templating engine with inheritance and components
+- **Authentication** - Built-in session-based authentication system
+- **Security** - CSRF protection, XSS prevention, and SQL injection protection
+- **Dependency Injection** - Service container for clean, testable code
+- **Middleware** - Global and route-specific middleware support
+- **CLI Tools** - Powerful command-line interface for scaffolding and management
 
 ### Developer Experience
-- **📝 Code Generators** - Generate models, controllers, migrations, and complete CRUD scaffolds
-- **🔄 Database Migrations** - Version control for your database schema
-- **📊 Query Builder** - Fluent interface for building database queries
-- **🌐 Localization** - Multi-language support with RTL compatibility
-- **📁 File Storage** - Simple file upload and storage management
-- **🎯 Validation** - Built-in validation for forms and API requests
-- **📝 Logging** - Comprehensive logging system
-- **⚙️ Configuration** - Environment-based configuration management
+- **Code Generators** - Generate models, controllers, migrations, and complete CRUD scaffolds
+- **Database Migrations** - Version control for your database schema
+- **Query Builder** - Fluent interface for building database queries
+- **Localization** - Multi-language support with RTL compatibility
+- **File Storage** - Simple file upload and storage management
+- **Validation** - Built-in validation for forms and API requests
+- **Logging** - Comprehensive logging system
+- **Configuration** - Environment-based configuration management
 
 ---
 
