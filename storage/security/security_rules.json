@@ -1,0 +1,44 @@
+{
+    "sql_injection": {
+        "patterns": [
+            "(?i)union\\s+select",
+            "(?i)information_schema",
+            "(?i)into\\s+outfile",
+            "(?i)load_file",
+            "(?i)benchmark\\(",
+            "(?i)sleep\\("
+        ],
+        "description": "Potential SQL Injection pattern detected"
+    },
+    "xss": {
+        "patterns": [
+            "(?i)<script[^>]*>",
+            "(?i)javascript:",
+            "(?i)onerror\\s*=",
+            "(?i)onload\\s*=",
+            "(?i)eval\\("
+        ],
+        "description": "Potential Cross-Site Scripting (XSS) pattern detected"
+    },
+    "dangerous_functions": {
+        "patterns": [
+            "exec\\(",
+            "shell_exec\\(",
+            "system\\(",
+            "passthru\\(",
+            "proc_open\\(",
+            "popen\\(",
+            "eval\\("
+        ],
+        "description": "Dangerous PHP function usage detected"
+    },
+    "sensitive_data": {
+        "patterns": [
+            "(?i)password\\s*=",
+            "(?i)secret\\s*=",
+            "(?i)api_key\\s*=",
+            "(?i)token\\s*="
+        ],
+        "description": "Potential hardcoded sensitive data detected"
+    }
+}
