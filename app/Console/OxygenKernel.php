@@ -55,6 +55,9 @@ class OxygenKernel
             'framework:update' => Commands\FrameworkUpdateCommand::class,
             // 'restore' => Commands\RestoreCommand::class,
             'websocket' => Commands\WebSocketCommand::class,
+            'db:seed' => Commands\DbSeedCommand::class,
+            'make:seeder' => Commands\MakeSeederCommand::class,
+            'make:factory' => Commands\MakeFactoryCommand::class,
         ];
     }
 

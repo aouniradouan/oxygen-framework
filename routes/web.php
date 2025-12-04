@@ -81,3 +81,30 @@ Route::get($router, '/dashboard', function () {
         'user' => $auth->user()
     ]);
 });
+
+// Prodyc Resource Routes
+Route::get($router, '/prodycs', 'ProdycController@index');
+Route::get($router, '/prodycs/create', 'ProdycController@create');
+Route::post($router, '/prodycs/store', 'ProdycController@store');
+Route::get($router, '/prodycs/(\d+)', 'ProdycController@show');
+Route::get($router, '/prodycs/(\d+)/edit', 'ProdycController@edit');
+Route::post($router, '/prodycs/(\d+)/update', 'ProdycController@update');
+Route::get($router, '/prodycs/(\d+)/delete', 'ProdycController@destroy');
+
+// Poster Resource Routes
+Route::get($router, '/posters', 'PosterController@index');
+Route::get($router, '/posters/create', 'PosterController@create');
+Route::post($router, '/posters/store', 'PosterController@store');
+Route::get($router, '/posters/(\d+)', 'PosterController@show');
+Route::get($router, '/posters/(\d+)/edit', 'PosterController@edit');
+Route::post($router, '/posters/(\d+)/update', 'PosterController@update');
+Route::get($router, '/posters/(\d+)/delete', 'PosterController@destroy');
+
+// Poster Resource Routes
+Route::get($router, '/posters', 'PosterController@index');
+Route::get($router, '/posters/create', 'PosterController@create');
+Route::post($router, '/posters/store', 'PosterController@store');
+Route::get($router, '/posters/(\d+)', 'PosterController@show');
+Route::get($router, '/posters/(\d+)/edit', 'PosterController@edit');
+Route::post($router, '/posters/(\d+)/update', 'PosterController@update');
+Route::get($router, '/posters/(\d+)/delete', 'PosterController@destroy');

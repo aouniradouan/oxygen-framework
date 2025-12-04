@@ -133,12 +133,29 @@ class {$className} extends Model
         // Add fields to hide from JSON/array output
     ];
 
+    /**
+     * The attributes that should be cast
+     * 
+     * @var array
+     */
+    protected \$casts = [
+        // 'is_active' => 'boolean',
+        // 'metadata' => 'array',
+    ];
+
+    /**
+     * The attributes that should be mutated to dates
+     * 
+     * @var array
+     */
+    protected \$dates = ['created_at', 'updated_at'];
+
     // Add your custom methods here
     
     /**
      * Example: Get all active records
      * 
-     * @return array
+     * @return \\Oxygen\\Core\\Database\\Collection
      */
     // public static function active()
     // {

@@ -12,7 +12,7 @@ return [
     */
 
     'rate_limit' => [
-        'enabled' => true,
+        'enabled' => false,
         'window' => 60,
         'max_requests' => 60,
         'authenticated_max_requests' => 120,

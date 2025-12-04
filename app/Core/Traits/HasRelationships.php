@@ -45,6 +45,7 @@ trait HasRelationships
      */
     public function hasMany($related, $foreignKey = null, $localKey = null)
     {
+        // Foreign key should be based on current model (e.g., user_id for User model)
         $foreignKey = $foreignKey ?? $this->getForeignKeyName($this);
         $localKey = $localKey ?? $this->primaryKey;
 
@@ -94,7 +95,7 @@ trait HasRelationships
         } else {
             $reflection = new \ReflectionClass($model);
         }
-        
+
         $name = $reflection->getShortName();
         return strtolower($name) . '_id';
     }
@@ -112,13 +113,13 @@ trait HasRelationships
         // Check if method exists for relationship
         if (method_exists($this, $key)) {
             $relation = $this->$key();
-            
+
             // If it's a Relation object, get the results
             if ($relation instanceof \Oxygen\Core\Database\Relations\Relation) {
                 $this->relations[$key] = $relation->get();
                 return $this->relations[$key];
             }
-            
+
             return $relation;
         }
 

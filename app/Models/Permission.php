@@ -13,6 +13,10 @@ class Permission extends Model
 {
     protected $table = 'permissions';
 
+    protected $fillable = ['name', 'slug', 'description'];
+
+    protected $dates = ['created_at', 'updated_at'];
+
     /**
      * Get all roles that have this permission
      * 
@@ -27,7 +31,7 @@ class Permission extends Model
             WHERE rp.permission_id = ?
         ";
 
-        return $this->db->query($sql, $this->id)->fetchAll();
+        return static::db()->query($sql, $this->id)->fetchAll();
     }
 
     /**
@@ -44,7 +48,7 @@ class Permission extends Model
             WHERE role_id = ? AND permission_id = ?
         ";
 
-        $result = $this->db->query($sql, $roleId, $this->id)->fetch();
-        return $result['count'] > 0;
+        $result = static::db()->query($sql, $roleId, $this->id)->fetch();
+        return $result && $result->count > 0;
     }
 }

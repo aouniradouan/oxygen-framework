@@ -4,6 +4,7 @@ namespace Oxygen\Controllers;
 
 use Oxygen\Core\Controller;
 use Oxygen\Core\Auth;
+use Oxygen\Core\Request;
 use Oxygen\Core\Flash;
 use Oxygen\Core\Validation\OxygenValidator;
 
@@ -86,18 +87,15 @@ class AuthController extends Controller
      */
     public function register()
     {
-        $name = $_POST['name'] ?? '';
-        $email = $_POST['email'] ?? '';
-        $password = $_POST['password'] ?? '';
-        $passwordConfirmation = $_POST['password_confirmation'] ?? '';
+        // $name = $_POST['name'] ?? '';
+        // $email = $_POST['email'] ?? '';
+        // $password = $_POST['password'] ?? '';
+        // $passwordConfirmation = $_POST['password_confirmation'] ?? '';
+
+        $request = $this->app->make(Request::class);
 
         // Validate
-        $validator = OxygenValidator::make([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
-            'password_confirmation' => $passwordConfirmation
-        ], [
+        $validator = OxygenValidator::make($request->clean(), [
             'name' => 'required|min:2',
             'email' => 'required|email',
             'password' => 'required|min:6',
@@ -110,11 +108,7 @@ class AuthController extends Controller
         }
 
         // Register user
-        $user = $this->auth->register([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password
-        ]);
+        $user = $this->auth->register($request->clean());
 
         if ($user) {
             Flash::success('Account created successfully! Welcome to OxygenFramework.');

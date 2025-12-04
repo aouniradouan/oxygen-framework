@@ -176,12 +176,12 @@ $post->save();
 ### Delete
 
 ```php
-// Delete by ID
+// Delete by ID (static method)
 Post::delete(1);
 
-// Delete instance
+// Delete instance using destroy()
 $post = Post::find(1);
-$post->delete();
+$post->destroy();
 ```
 
 ---
@@ -428,6 +428,46 @@ $table->timestamps();                  // created_at & updated_at
 $table->string('email')->nullable();
 $table->string('status')->default('active');
 $table->integer('order')->unsigned();
+$table->bigInteger('user_id')->unsigned();
+```
+
+### Foreign Keys
+
+Foreign keys create relationships between tables at the database level:
+
+```php
+// Using foreignId (recommended)
+$table->foreignId('user_id')->constrained()->onDelete('CASCADE');
+
+// Custom table reference
+$table->foreignId('author_id')->constrained('users')->onDelete('CASCADE');
+
+// Manual foreign key in raw SQL
+$sql = "
+    CREATE TABLE posts (
+        id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT UNSIGNED NOT NULL,
+        title VARCHAR(255) NOT NULL,
+        CONSTRAINT fk_posts_user 
+            FOREIGN KEY (user_id) 
+            REFERENCES users(id) 
+            ON DELETE CASCADE 
+            ON UPDATE CASCADE
+    )
+";
+```
+
+#### Foreign Key Methods (in Migration class)
+
+```php
+// Add foreign key to existing table
+$this->addForeignKey('posts', 'user_id', 'users', 'id', 'CASCADE', 'CASCADE');
+
+// Drop foreign key
+$this->dropForeignKey('posts', 'fk_posts_user_id');
+
+// Create pivot table with foreign keys
+$this->createPivotTable('users', 'roles');
 ```
 
 ### Running Migrations

@@ -35,6 +35,12 @@ class MakeMigrationCommand extends Command
 
     protected function getStub($className)
     {
+        // Try to extract table name from class name
+        $tableName = 'table_name';
+        if (preg_match('/Create(\w+)Table/', $className, $matches)) {
+            $tableName = strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', $matches[1]));
+        }
+
         return <<<PHP
 <?php
 
@@ -42,6 +48,8 @@ use Oxygen\Core\Database\Migration;
 
 /**
  * {$className} Migration
+ * 
+ * @see https://github.com/redwan-aouni/oxygen-framework
  */
 class {$className} extends Migration
 {
@@ -50,16 +58,22 @@ class {$className} extends Migration
      */
     public function up()
     {
-        // Example: Create a table
-        \$this->schema->createTable('table_name', function(\$table) {
+        \$this->schema->createTable('{$tableName}', function(\$table) {
+            // Primary key
             \$table->id();
-            \$table->string('title', 255);
+            
+            // Example columns - modify as needed
+            \$table->string('name', 255);
             \$table->string('slug', 255)->unique();
-            \$table->text('content')->nullable();
-            \$table->boolean('published')->default(false);
+            \$table->text('description')->nullable();
+            \$table->boolean('is_active')->default(true);
+            
+            // Foreign key example (uncomment if needed)
+            // \$table->foreignId('user_id')->constrained()->onDelete('CASCADE');
+            
+            // Timestamps (created_at, updated_at)
             \$table->timestamps();
         });
-
     }
 
     /**
@@ -67,10 +81,11 @@ class {$className} extends Migration
      */
     public function down()
     {
-        \$this->schema->dropTable('table_name');
+        \$this->schema->dropTable('{$tableName}');
     }
 }
 
 PHP;
     }
 }
+

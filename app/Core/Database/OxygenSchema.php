@@ -18,6 +18,8 @@ class OxygenSchema
     protected $columns = [];
     protected $engine = 'InnoDB';
     protected $charset = 'utf8mb4';
+    protected $foreignKeys = [];
+    protected $lastForeignColumn = null;
 
     public function __construct($table)
     {
@@ -84,6 +86,75 @@ class OxygenSchema
     public function long($name)
     {
         return $this->bigInteger($name);
+    }
+
+    /**
+     * Add a foreign key ID column (BIGINT UNSIGNED for referencing another table)
+     * 
+     * @param string $name Column name (e.g., 'user_id')
+     * @return $this
+     */
+    public function foreignId($name)
+    {
+        $this->columns[] = "`{$name}` BIGINT UNSIGNED NOT NULL";
+        $this->lastForeignColumn = $name;
+        return $this;
+    }
+
+    /**
+     * Add constrained foreign key (requires foreignId to be called first)
+     * 
+     * @param string|null $table Table to reference (guessed from column if null)
+     * @param string $column Column to reference (default: id)
+     * @return $this
+     */
+    public function constrained($table = null, $column = 'id')
+    {
+        if (!isset($this->lastForeignColumn)) {
+            return $this;
+        }
+
+        $columnName = $this->lastForeignColumn;
+
+        // Guess table name from column: user_id -> users
+        if ($table === null) {
+            $table = rtrim($columnName, '_id') . 's';
+        }
+
+        $constraintName = "fk_{$this->table}_{$columnName}";
+        $this->foreignKeys[] = "CONSTRAINT `{$constraintName}` FOREIGN KEY (`{$columnName}`) REFERENCES `{$table}`(`{$column}`)";
+
+        return $this;
+    }
+
+    /**
+     * Specify ON DELETE action for foreign key
+     * 
+     * @param string $action CASCADE, SET NULL, RESTRICT, NO ACTION
+     * @return $this
+     */
+    public function onDelete($action)
+    {
+        if (!empty($this->foreignKeys)) {
+            $lastKey = count($this->foreignKeys) - 1;
+            $this->foreignKeys[$lastKey] .= " ON DELETE {$action}";
+        }
+        return $this;
+    }
+
+    /**
+     * Specify ON UPDATE action for foreign key
+     * 
+     * @param string $action CASCADE, SET NULL, RESTRICT, NO ACTION
+     * @return $this
+     */
+    public function onUpdate($action)
+    {
+        if (!empty($this->foreignKeys)) {
+            $lastKey = count($this->foreignKeys) - 1;
+            $this->foreignKeys[$lastKey] .= " ON UPDATE {$action}";
+        }
+        return $this;
     }
 
     /**
@@ -169,15 +240,6 @@ class OxygenSchema
     }
 
     /**
-     * Add a foreign ID column (BIGINT UNSIGNED for referencing another table's id)
-     */
-    public function foreignId($name)
-    {
-        $this->columns[] = "`{$name}` BIGINT UNSIGNED NOT NULL";
-        return $this;
-    }
-
-    /**
      * Add unsigned big integer (for foreign keys)
      */
     public function unsignedBigInteger($name)
@@ -192,41 +254,6 @@ class OxygenSchema
     public function unsignedInteger($name)
     {
         $this->columns[] = "`{$name}` INT UNSIGNED NOT NULL";
-        return $this;
-    }
-
-    /**
-     * Add a foreign key constraint (called after foreignId)
-     * Assumes standard naming: table_id references tables(id)
-     */
-    public function constrained($table = null)
-    {
-        $last = array_pop($this->columns);
-
-        // Extract table name from column name if not provided
-        // e.g., user_id -> users, contact_id -> contacts
-        if (!$table) {
-            preg_match('/`(\w+)_id`/', $last, $matches);
-            if (isset($matches[1])) {
-                $table = $matches[1] . 's'; // Simple pluralization
-            }
-        }
-
-        if ($table) {
-            $last .= " REFERENCES `{$table}`(`id`)";
-        }
-
-        $this->columns[] = $last;
-        return $this;
-    }
-
-    /**
-     * Set ON DELETE action for foreign key
-     */
-    public function onDelete($action = 'CASCADE')
-    {
-        $last = array_pop($this->columns);
-        $this->columns[] = $last . " ON DELETE {$action}";
         return $this;
     }
 
@@ -256,6 +283,18 @@ class OxygenSchema
     {
         $last = array_pop($this->columns);
         $this->columns[] = $last . ' UNIQUE';
+        return $this;
+    }
+
+    /**
+     * Make the column UNSIGNED (for integer types)
+     */
+    public function unsigned()
+    {
+        $last = array_pop($this->columns);
+        // Insert UNSIGNED after the type name
+        $last = preg_replace('/(INT|BIGINT|MEDIUMINT|SMALLINT|TINYINT)/', '$1 UNSIGNED', $last);
+        $this->columns[] = $last;
         return $this;
     }
 
@@ -331,8 +370,15 @@ class OxygenSchema
      */
     public function toSQL()
     {
-        $columns = implode(",\n    ", $this->columns);
-        return "CREATE TABLE `{$this->table}` (\n    {$columns}\n) ENGINE={$this->engine} DEFAULT CHARSET={$this->charset}";
+        $allDefinitions = $this->columns;
+
+        // Add foreign key constraints
+        if (!empty($this->foreignKeys)) {
+            $allDefinitions = array_merge($allDefinitions, $this->foreignKeys);
+        }
+
+        $definitions = implode(",\n    ", $allDefinitions);
+        return "CREATE TABLE `{$this->table}` (\n    {$definitions}\n) ENGINE={$this->engine} DEFAULT CHARSET={$this->charset}";
     }
 }
 

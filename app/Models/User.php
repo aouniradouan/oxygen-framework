@@ -2,57 +2,95 @@
 
 namespace Oxygen\Models;
 
-// Assuming the Role model exists in the same namespace or is imported
-// We must import the Role class to use it for relationships and type-hinting.
 use Oxygen\Core\Model;
-use Oxygen\Models\Role;
 
-
+/**
+ * User Model
+ * 
+ * Represents application users with role-based permissions and relationships.
+ */
 class User extends Model
 {
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
+     * The database table name
+     */
+    protected $table = 'users';
+
+    /**
+     * The attributes that are mass assignable
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'role_id',
+        'email_verified_at',
+        'remember_token'
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization
      */
     protected $hidden = ['password', 'remember_token'];
 
+    /**
+     * The attributes that should be cast
+     */
     protected $casts = [
         'role_id' => 'integer',
+        'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * The attributes that should be mutated to dates
+     */
+    protected $dates = ['created_at', 'updated_at', 'email_verified_at'];
+
+    // ===== RELATIONSHIPS =====
+
+    /**
+     * Get the user's role
+     * 
+     * @return \Oxygen\Core\Database\Relations\BelongsTo
+     */
     public function role()
     {
-        // Assumes a 'role_id' foreign key points to the Role model
         return $this->belongsTo(Role::class, 'role_id');
     }
 
-    // --- ROLE AND PERMISSION CHECKS ---
+    /**
+     * Get all posts by this user
+     * 
+     * @return \Oxygen\Core\Database\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id');
+    }
+
+    // ===== ROLE AND PERMISSION CHECKS =====
 
     /**
      * Check if user has a specific role
-     * * @param string $roleSlug
+     * 
+     * @param string $roleSlug
      * @return bool
      */
     public function hasRole($roleSlug)
     {
-        // Access the relationship result as a dynamic property ($this->role)
-        // This triggers the 'role()' method once, and then uses the cached object.
         $role = $this->role;
 
         if (!$role) {
             return false;
         }
 
-        // Use object property access ($role->slug), not array access
         return $role->slug === $roleSlug;
     }
 
     /**
      * Check if user has a specific permission
-     * * FIX: Delegates the check directly to the fully-loaded Role object.
-     * This avoids creating a new, un-hydrated Role object every time.
-     * * @param string $permissionSlug
+     * 
+     * @param string $permissionSlug
      * @return bool
      */
     public function hasPermission($permissionSlug)
@@ -63,13 +101,13 @@ class User extends Model
             return false;
         }
 
-        // This assumes the Role Model also has a working hasPermission() method
         return $role->hasPermission($permissionSlug);
     }
 
     /**
      * Alias for hasPermission
-     * * @param string $permissionSlug
+     * 
+     * @param string $permissionSlug
      * @return bool
      */
     public function can($permissionSlug)
@@ -79,7 +117,8 @@ class User extends Model
 
     /**
      * Check if user is an administrator
-     * * @return bool
+     * 
+     * @return bool
      */
     public function isAdmin()
     {
@@ -88,7 +127,8 @@ class User extends Model
 
     /**
      * Check if user is a moderator
-     * * @return bool
+     * 
+     * @return bool
      */
     public function isModerator()
     {
@@ -97,8 +137,8 @@ class User extends Model
 
     /**
      * Get all permissions for this user
-     * * FIX: Delegates the collection of permissions directly to the Role object.
-     * * @return array
+     * 
+     * @return array
      */
     public function permissions()
     {
@@ -108,7 +148,6 @@ class User extends Model
             return [];
         }
 
-        // This assumes the Role Model has a working permissions() method
         return $role->permissions();
     }
 }

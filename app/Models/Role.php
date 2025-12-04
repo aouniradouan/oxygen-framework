@@ -13,6 +13,10 @@ class Role extends Model
 {
     protected $table = 'roles';
 
+    protected $fillable = ['name', 'slug', 'description'];
+
+    protected $dates = ['created_at', 'updated_at'];
+
     /**
      * Get all permissions for this role
      * 
@@ -27,7 +31,7 @@ class Role extends Model
             WHERE rp.role_id = ?
         ";
 
-        return $this->db->query($sql, $this->id)->fetchAll();
+        return static::db()->query($sql, $this->id)->fetchAll();
     }
 
     /**
@@ -45,8 +49,8 @@ class Role extends Model
             WHERE rp.role_id = ? AND p.slug = ?
         ";
 
-        $result = $this->db->query($sql, $this->id, $permissionSlug)->fetch();
-        return $result['count'] > 0;
+        $result = static::db()->query($sql, $this->id, $permissionSlug)->fetch();
+        return $result && $result->count > 0;
     }
 
     /**
@@ -58,7 +62,7 @@ class Role extends Model
     public function givePermissionTo($permissionId)
     {
         $sql = "INSERT IGNORE INTO role_permission (role_id, permission_id) VALUES (?, ?)";
-        $this->db->query($sql, $this->id, $permissionId);
+        static::db()->query($sql, $this->id, $permissionId);
     }
 
     /**
@@ -70,13 +74,13 @@ class Role extends Model
     public function revokePermissionTo($permissionId)
     {
         $sql = "DELETE FROM role_permission WHERE role_id = ? AND permission_id = ?";
-        $this->db->query($sql, $this->id, $permissionId);
+        static::db()->query($sql, $this->id, $permissionId);
     }
 
     /**
      * Get all users with this role
      * 
-     * @return array
+     * @return \Oxygen\Core\Database\Collection
      */
     public function users()
     {

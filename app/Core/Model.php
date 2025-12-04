@@ -117,11 +117,62 @@ abstract class Model
     }
 
     /**
-     * Delete a record
+     * Delete a record by ID
      */
     public static function delete($id)
     {
         return static::db()->query('DELETE FROM ?name WHERE ?name = ?', static::getTableName(), static::getPrimaryKey(), $id);
+    }
+
+    /**
+     * Save the model to the database
+     * Creates a new record if not exists, updates if exists
+     * 
+     * @return $this
+     */
+    public function save()
+    {
+        $data = $this->filterFillable($this->attributes);
+
+        // Add timestamps
+        $now = date('Y-m-d H:i:s');
+
+        if ($this->exists) {
+            // Update existing record
+            $data['updated_at'] = $now;
+            $id = $this->attributes[$this->primaryKey];
+            static::db()->query('UPDATE ?name SET ? WHERE ?name = ?', static::getTableName(), $data, $this->primaryKey, $id);
+        } else {
+            // Create new record
+            $data['created_at'] = $now;
+            $data['updated_at'] = $now;
+            static::db()->query('INSERT INTO ?name ?', static::getTableName(), $data);
+            $this->attributes[$this->primaryKey] = static::db()->getInsertId();
+            $this->exists = true;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Delete the model instance from database
+     * 
+     * @return bool
+     */
+    public function destroy()
+    {
+        if (!$this->exists) {
+            return false;
+        }
+
+        $id = $this->attributes[$this->primaryKey] ?? null;
+        if ($id) {
+            static::delete($id);
+            $this->exists = false;
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -143,6 +194,10 @@ abstract class Model
         $results = static::db()->query('SELECT * FROM ?name WHERE ?name ' . $operator . ' ?', static::getTableName(), $column, $value)->fetchAll();
         return static::hydrate($results);
     }
+
+
+
+
 
     /**
      * Query with whereIn clause

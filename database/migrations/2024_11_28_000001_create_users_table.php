@@ -5,33 +5,28 @@ use Oxygen\Core\Database\Migration;
 /**
  * Create Users Table Migration
  * 
- * This is a default migration that creates the users table with role support
+ * Users table with role support - FK added in separate migration.
  */
 class CreateUsersTable extends Migration
 {
     public function up()
     {
-        $sql = "
-            CREATE TABLE `users` (
-                `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                `name` VARCHAR(255) NOT NULL,
-                `email` VARCHAR(255) NOT NULL UNIQUE,
-                `password` VARCHAR(255) NOT NULL,
-                `role_id` INT NULL DEFAULT 2,
-                `email_verified_at` TIMESTAMP NULL DEFAULT NULL,
-                `remember_token` VARCHAR(100) NULL DEFAULT NULL,
-                `created_at` TIMESTAMP NULL DEFAULT NULL,
-                `updated_at` TIMESTAMP NULL DEFAULT NULL,
-                INDEX `idx_email` (`email`),
-                INDEX `idx_role_id` (`role_id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
-        ";
-
-        $this->execute($sql);
+        $this->schema->createTable('users', function ($table) {
+            $table->id();
+            $table->string('name', 255);
+            $table->string('email', 255)->unique();
+            $table->string('password', 255);
+            $table->foreignId('role_id')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('remember_token', 100)->nullable();
+            $table->timestamps();
+            $table->index('email');
+            $table->index('role_id');
+        });
     }
 
     public function down()
     {
-        $this->dropTable('users');
+        $this->schema->dropTable('users');
     }
 }

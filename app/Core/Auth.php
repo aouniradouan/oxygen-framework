@@ -156,15 +156,16 @@ class Auth
      */
     public static function hasRole($roleSlug)
     {
-        $user = self::user();
-
-        if (!$user) {
+        if (!self::check()) {
             return false;
         }
 
-        $userModel = new User();
-        foreach ($user as $key => $value) {
-            $userModel->$key = $value;
+        // Get fresh user model from database to ensure relationships work
+        $userId = self::id();
+        $userModel = User::find($userId);
+
+        if (!$userModel) {
+            return false;
         }
 
         return $userModel->hasRole($roleSlug);
@@ -178,15 +179,16 @@ class Auth
      */
     public static function can($permissionSlug)
     {
-        $user = self::user();
-
-        if (!$user) {
+        if (!self::check()) {
             return false;
         }
 
-        $userModel = new User();
-        foreach ($user as $key => $value) {
-            $userModel->$key = $value;
+        // Get fresh user model from database to ensure relationships work
+        $userId = self::id();
+        $userModel = User::find($userId);
+
+        if (!$userModel) {
+            return false;
         }
 
         return $userModel->can($permissionSlug);
@@ -200,5 +202,19 @@ class Auth
     public static function isAdmin()
     {
         return self::hasRole('admin');
+    }
+
+    /**
+     * Get the current authenticated user model
+     * 
+     * @return User|null
+     */
+    public static function userModel()
+    {
+        if (!self::check()) {
+            return null;
+        }
+
+        return User::find(self::id());
     }
 }
