@@ -52,7 +52,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/redwan-aouni/oxygen-framework.git
+git clone https://github.com/aouniradouan/oxygen-framework.git
 cd oxygen-framework
 
 # Install dependencies
